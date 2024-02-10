@@ -1,8 +1,7 @@
 import css from './Feedback.module.css';
 
-export default Feedback;
-
-function Feedback({ good = 0, neutral = 0, bad = 0, totalFeedback = 0 }) {
+function Feedback({ good = 0, neutral = 0, bad = 0 }) {
+  const totalFeedback = good + neutral + bad;
   return (
     <div>
       <p className={css.text}>{`Good: ${good}`}</p>
@@ -17,3 +16,5 @@ function Feedback({ good = 0, neutral = 0, bad = 0, totalFeedback = 0 }) {
     </div>
   );
 }
+
+export default Feedback;

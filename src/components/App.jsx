@@ -14,7 +14,9 @@ function App() {
     if (storageData) {
       try {
         return JSON.parse(storageData);
-      } catch {}
+      } catch (error) {
+        console.error(error.message);
+      }
     }
 
     return { good: 0, neutral: 0, bad: 0 };
@@ -24,12 +26,14 @@ function App() {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }, [state]);
 
-  const updateFeedback = (feefbackType = '') => {
-    if (feefbackType) {
-      const newState = { ...state };
-      newState[feefbackType] += 1;
-      setState(newState);
-    } else setState({ good: 0, neutral: 0, bad: 0 });
+  const updateFeedback = feedbackType => {
+    const newState = { ...state };
+    newState[feedbackType] += 1;
+    setState(newState);
+  };
+
+  const resetFeedback = () => {
+    setState({ good: 0, neutral: 0, bad: 0 });
   };
 
   const totalFeedback = state.good + state.neutral + state.bad;
@@ -42,9 +46,13 @@ function App() {
         text="Please leave your feedback about our service by selecting one of the options below.
 "
       ></Description>
-      <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
+      <Options
+        updateFeedback={updateFeedback}
+        resetFeedback={resetFeedback}
+        totalFeedback={totalFeedback}
+      />
       {totalFeedback ? (
-        <Feedback {...state} totalFeedback={totalFeedback} />
+        <Feedback {...state} />
       ) : (
         <Notification text={notificationText} />
       )}

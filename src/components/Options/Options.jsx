@@ -1,8 +1,6 @@
 import css from './Options.module.css';
 
-export default Options;
-
-function Options({ updateFeedback, totalFeedback = 0 }) {
+function Options({ updateFeedback, resetFeedback, totalFeedback = 0 }) {
   return (
     <ul className={css.list}>
       <li>
@@ -20,7 +18,7 @@ function Options({ updateFeedback, totalFeedback = 0 }) {
             updateFeedback('neutral');
           }}
         >
-          Neutlal
+          Neutral
         </button>
       </li>
       <li>
@@ -36,7 +34,7 @@ function Options({ updateFeedback, totalFeedback = 0 }) {
         <li>
           <button
             onClick={() => {
-              updateFeedback('');
+              resetFeedback();
             }}
           >
             Reset
@@ -46,3 +44,5 @@ function Options({ updateFeedback, totalFeedback = 0 }) {
     </ul>
   );
 }
+
+export default Options;

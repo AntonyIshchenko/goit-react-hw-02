@@ -1,7 +1,5 @@
 import css from './Description.module.css';
 
-export default Description;
-
 function Description({ title, text }) {
   return (
     <>
@@ -10,3 +8,5 @@ function Description({ title, text }) {
     </>
   );
 }
+
+export default Description;
