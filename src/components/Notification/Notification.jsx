@@ -1,5 +1,3 @@
-function Notification({ text = '' }) {
+export default function Notification({ text = '' }) {
   return <p>{text}</p>;
 }
-
-export default Notification;

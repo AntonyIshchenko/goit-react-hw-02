@@ -1,6 +1,10 @@
 import css from './Options.module.css';
 
-function Options({ updateFeedback, resetFeedback, totalFeedback = 0 }) {
+export default function Options({
+  updateFeedback,
+  resetFeedback,
+  totalFeedback = 0,
+}) {
   return (
     <ul className={css.list}>
       <li>
@@ -44,5 +48,3 @@ function Options({ updateFeedback, resetFeedback, totalFeedback = 0 }) {
     </ul>
   );
 }
-
-export default Options;
