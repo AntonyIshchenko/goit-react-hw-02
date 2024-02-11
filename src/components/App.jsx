@@ -27,9 +27,9 @@ export default function App() {
   }, [state]);
 
   const updateFeedback = feedbackType => {
-    const newState = { ...state };
-    newState[feedbackType] += 1;
-    setState(newState);
+    // const newState = { ...state };
+    // newState[feedbackType] += 1;
+    setState({ ...state, [feedbackType]: state[feedbackType] + 1 });
   };
 
   const resetFeedback = () => {

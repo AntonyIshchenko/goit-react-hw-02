@@ -1,6 +1,6 @@
 import css from './Description.module.css';
 
-export default function Description({ title, text }) {
+export default function Description({ title = '', text = '' }) {
   return (
     <>
       <h1 className={css.title}>{title}</h1>
